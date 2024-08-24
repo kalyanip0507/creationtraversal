@@ -1,0 +1,63 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node{
+    int data;
+    struct node *next;
+};
+void linkedListTraversal(struct node *ptr){
+    while(ptr!=NULL){
+        printf("LINKEDLIST=%d",ptr->data);
+        ptr=ptr->next;
+    }
+}
+struct node *deleteAfternode(struct node *head){
+    struct node *p,*first,*q;
+    int key;
+    first=head;
+    printf("Enter the node you want to delete");
+    scanf("%d",&key);
+    {
+        while(head->data!=key){
+            p=head;
+            head=head->next;
+        }
+        p->next=head->next;
+    }free(head);
+    return first;
+}
+int main(){
+    struct node *head;
+    struct node *second;
+    struct node *third;
+    struct node *fourth;
+
+    head=(struct node*)malloc(sizeof(struct node));
+    second=(struct node*)malloc(sizeof(struct node));
+    third=(struct node*)malloc(sizeof(struct node));
+    fourth=(struct node*)malloc(sizeof(struct node));
+
+
+head->data=2;
+head->next=second;
+
+second->data=4;
+second->next=third;
+
+third->data=6;
+third->next=fourth;
+
+fourth->data=8;
+fourth->next=NULL;
+
+printf("Linkedlist before deletion\n");
+linkedListTraversal(head);
+head=deleteAfternode(head);
+printf("Linkedlist after deletion\n");
+linkedListTraversal(head);
+
+return 0;
+    }
+
+
+    
+
