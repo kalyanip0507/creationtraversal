@@ -1,0 +1,66 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node{
+    int data;
+    struct node *next;
+};
+void linkedListTraversal(struct node *ptr){
+    while(ptr!=NULL){
+    printf("LINKLIST=%d\n",ptr->data);
+    ptr=ptr->next;
+    }
+}
+struct node *insertAfternode(struct node *head){
+struct node *p,*first,*q;
+int key;
+printf("Enter element where you want to add node\n");
+scanf("%d",&key);
+first=head;
+while(head->data!=key){
+    head=head->next;
+}
+p=(struct node *)malloc(sizeof(struct node));
+printf("Enter new node\n");
+scanf("%d",&p->data);
+    if(head->data==key){
+        q=head->next;
+        head->next=p;
+        p->next=q;
+        head=first;
+    }else{
+        printf("NOT FOUND");
+    } 
+
+return head;
+}
+
+int main(){
+    struct node *head;
+    struct node *second;
+    struct node *third;
+
+    head=(struct node*)malloc(sizeof(struct node));
+    second=(struct node*)malloc(sizeof(struct node));
+    third=(struct node*)malloc(sizeof(struct node));
+
+head->data=5;
+head->next=second;
+
+second->data=10;
+second->next=third;
+
+third->data=15;
+third->next=fourth;
+
+fourth->data=20;
+fourth->next=NULL;
+
+printf("Linkedlist before insertion\n");
+linkedListTraversal(head);
+head=insertAfternode(head);
+printf("Linkedlist after insertion\n");
+linkedListTraversal(head);
+
+return 0;
+
+}
