@@ -50,10 +50,7 @@ second->data=10;
 second->next=third;
 
 third->data=15;
-third->next=fourth;
-
-fourth->data=20;
-fourth->next=NULL;
+third->next=NULL;
 
 printf("Linkedlist before insertion\n");
 linkedListTraversal(head);
